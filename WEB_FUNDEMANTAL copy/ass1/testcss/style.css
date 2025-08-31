@@ -1,0 +1,61 @@
+
+
+.mycloud {
+	
+	color: white;
+	background: black;
+	text-align: left;
+	font-size: large;
+	
+	margin: 10px;
+	padding: 10px;
+	
+	
+	
+	
+	
+}
+
+
+#cloud1 {
+	color: aqua;
+
+	
+}
+.project{
+	
+	color:white;
+	background: #663399;
+	text-align: center;
+	text-transform: uppercase;
+	margin: 10px;
+	padding: 10px;
+	
+
+}
+
+.tel{
+	color:#241853;
+	background: #a0c6f9;
+	text-align: right;
+    font-size: smaller  ;
+	text-transform: uppercase;
+	text-decoration: underline;
+	
+	margin: 10px;
+	padding: 10px;
+	
+	
+	
+	
+	
+	
+	
+}
+
+
+
+
+
+
+
