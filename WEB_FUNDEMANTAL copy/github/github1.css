@@ -1,0 +1,48 @@
+.body {
+    display: flex;
+    justify-content: centre;
+    align-items: center;
+    margin: 0 auto;
+    /* background-color: lightgoldenrodyellow; */
+    min-height: 100px;
+    width: 100px;
+}
+
+.gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    width: 800px;
+    background-color: silver;
+    margin: 0px auto;
+    padding: 5px;
+}
+
+.gallery img {
+    width: 100px;
+    height: 150px;
+    background: rgb(170, 197, 222);
+    border-radius: 10px;
+}
+
+.row {
+    display: flex;
+    justify-content: centre;
+    /* gap: 15px; */
+    background: rgb(172, 207, 233);
+    padding: 15px 5px;
+    margin: 2px;
+    gap: 15px;
+    border-radius: 10px;
+}
+
+.row img {
+    border-radius: 10px;
+    width: 150px;
+    height: 150px;
+
+}
+
+/* .row :nth-child(odd){ background: lightblue;} */
+/* .row :nth-child(even){ background: rgb(88, 157, 180);} */
