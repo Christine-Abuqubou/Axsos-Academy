@@ -29,6 +29,11 @@
     padding: 10px 20px;
 
 }
+h4{
+    color: white;
+    font-weight: lighter;
+    font-size: small;
+}
 .nav-links a{
     text-decoration: none;
     color: white;
