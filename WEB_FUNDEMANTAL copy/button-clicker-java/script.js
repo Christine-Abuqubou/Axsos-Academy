@@ -3,12 +3,12 @@ function alertLog() {
 }
 
 function hide(element) {
-element.remove();
+  element.remove();
 }
 function loginLogout(login) {
-if (login.innerText == "login") {
+  if (login.innerText == "login") {
     login.innerText = "logout";
-} else {
+  } else {
     login.innerText = "login";
-}
+  }
 }

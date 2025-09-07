@@ -1,0 +1,282 @@
+body {
+    margin: 0;
+    padding-top: 40px;
+     position: fixed; 
+    background: lightgray;
+     /* position: relative; */
+}
+
+header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* position: relative; */
+    /* margin-top: 90px; */
+    
+    /* margin-bottom: 200px; */
+     margin-top: 0px;  
+    /* flex-direction: column; */
+    /* align-items: flex-start; */
+}
+
+.logo {
+    position: fixed;
+    width: 100px;
+    height: auto;
+    /* margin-bottom: 50px; */
+}
+
+.title {
+    font-size: 40px;
+    padding-left: 100px;
+    position: fixed;
+    /* margin-left: 50px; */
+
+}
+
+.sub-header {
+    display: flex;
+     /* flex-direction: column;  */
+    margin-top: 170px;
+    /* margin-bottom: 200px; */
+    font-size: 30px;
+    padding-left: 30px;
+    background-color: rgb(11, 11, 191);
+    color: white;
+    width: 100%;
+     height: 80px; 
+    align-items: center;
+    margin: 20px;
+     /* margin-top: 100px; s */
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    /* background: goldenrod; */
+    height: 150px;
+    padding-left: 20px;
+    margin: 20px;
+
+
+
+
+}
+
+.sub-content-left {
+    display: flex;
+
+}
+
+.left-nav p {
+    color: black;
+    /* background-color: gray; */
+    width: 200px;
+    ;
+    height: 150px;
+    font-size: 20px;
+    font-weight: bold;
+    /* margin-top: 10px; */
+    padding-top: 20px;
+    /* margin-left: 10px; */
+}
+
+.red-color {
+    color: red;
+}
+
+.inter-blue {
+    color: lightblue;
+}
+
+.btn-column {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    margin-bottom: 0px;
+    padding-top: 0 auto;
+    /* background-color: black; */
+    gap: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 180px;
+
+    /* height: 100px; */
+}
+
+.w-v {
+    background-color: blue;
+    height: 40px;
+    border-radius: 5px;
+    box-shadow: 3px lightgrey;
+    width: 180px;
+}
+
+.M-R {
+    background-color: orange;
+    height: 40px;
+    border-radius: 5px;
+    box-shadow: 3px lightgrey;
+    width: 180px;
+}
+
+.img-box {
+    position: relative;
+    display: inline-block;
+    /* background: rgb(6, 6, 75); */
+    width: 220px;
+    height: 400px;
+    background-image: url('images 2/ad_background.png');
+
+}
+
+.img-ninja {
+
+    display: block;
+    width: 200px;
+    margin-top: 50px;
+
+    /* height: 400px; */
+
+}
+
+.img-ninja-text {
+    position: absolute;
+    display: block;
+    padding: 5px 10px;
+    margin: 20px 8px;
+    color: white;
+    font-size: 16px;
+    background-color: rgb(188, 188, 235);
+    border-radius: 4px;
+
+}
+
+.ninja-btn {
+    position: absolute;
+    bottom: 15px;
+    left: 13%;
+    background-color: rgb(95, 162, 140);
+    border-radius: 5px;
+    font-size: 16px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    height: 30px;
+    width: 150px;
+
+
+}
+
+.sub-content-right {
+    display: flex;
+    justify-content: center;
+    /* width: 80%; */
+    /* margin-left: 30px; */
+    margin-top: 20px;
+    /* border: solid black; */
+    width: 900px;
+    margin-left: 80px;
+    height: 50px;
+
+}
+
+.right-nav {
+    display: flex;
+    justify-content: space-between;
+    width: 900px;
+
+}
+
+.addres {
+    display: flex;
+    justify-content: space-between;
+    /* background: yellow; */
+    height: 40px;
+
+    /* align-items: flex-start;  */
+}
+
+.phone {
+    /* background: green; */
+    height: 150px;
+}
+
+.title-dns {
+    color: lightblue;
+}
+
+.phone-img-number {
+    display: flex;
+    flex-direction: row;
+    padding-right: 40px;
+    gap: 10px;
+}
+
+.h5 {
+    margin-left: 40px;
+}
+
+h6 {
+    margin-left: 40px;
+}
+
+.number {
+    color: aqua;
+    font-size: x-large;
+
+}
+
+.h55 {
+    display: flex;
+    align-items: center;
+    /* margin-right: 400px; */
+    /* margin-bottom: 300px; */
+}
+.btn-contents{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 60px;
+    /* background: orange; */
+    /* margin-bottom: 600px; */
+    margin-left: 50px;
+}
+h2{
+   color: lightgray;
+
+}
+.client-server{
+    color: blue;
+    font-size: x-large;
+    padding-right: 500px;
+    /* margin-right: 50px; */
+   
+}
+.c-s{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    /* background: purple; */
+    width: 60%;
+    
+    /* height: 900px; */
+}
+
+
+.end-content{
+    display: flex;
+    gap: 10px;
+    border: 2px solid black;
+}
+.h1-end{
+    color: blue;
+}
+.last-content p{
+    width: 400px;
+}
+footer{
+    color: black;
+}
