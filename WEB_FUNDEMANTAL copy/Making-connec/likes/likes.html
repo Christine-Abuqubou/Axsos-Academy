@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+        <title>Likes</title>
+        <link rel="stylesheet" href="likes1.css">
+    </head>
+    <body>
+        <div class="header">
+            <h1 class="header-title fontFamilly">Network</h1>
+        </div>
+        <h2 class="feeds-title fontFamilly">Your Feed</h2>
+        <div class="container">
+            <div class="profile-info-div">
+                <img src="user-circle.png" alt="profile-img" class="profile-img">
+                <a href="#" class="avatar-link fontFamilly">Add an avatar</a>
+                <p class="profile-name fontFamilly">James Doe</p>
+            </div>
+            <div class="feeds-container">
+                <div class="feed-div">
+                    <div class="feed-header">
+                        <h3 class="person-name fontFamilly">Neil M</h3>
+                        <p class="number-of-likes fontFamilly"><span class="number fontFamilly" id="Nile-likes">0</span> like(s)</p>
+                        <button class="increase-likes fontFamilly" onclick="incrementLikes(this)" id="like-to-Nile">Like</button>
+                    </div>
+                    <p class="feed-description fontFamilly">I just set up this new discord bot, let me know what you all think. <a href="#" class="feed-description-link fontFamilly">link</a></p>
+                </div>
+                <div class="feed-div">
+                    <div class="feed-header">
+                        <h3 class="person-name fontFamilly">Nickole K</h3>
+                        <p class="number-of-likes fontFamilly"><span class="number fontFamilly" id="Nickole-likes">0</span> like(s)</p>
+                        <button class="increase-likes fontFamilly" onclick="incrementLikes(this)" id="like-to-Nickole">Like</button>
+                    </div>
+                    <p class="feed-description fontFamilly">Just finished my <a href="#" class="feed-description-link fontFamilly">next comic</a>, check it out.</p>
+                </div>
+                <div class="feed-div">
+                    <div class="feed-header">
+                        <h3 class="person-name fontFamilly">Jim R</h3>
+                        <p class="number-of-likes fontFamilly"><span class="number fontFamilly" id="Jim-likes">0</span> like(s)</p>
+                        <button class="increase-likes fontFamilly" onclick="incrementLikes(this)" id="like-to-Jim">Like</button>
+                    </div>
+                    <p class="feed-description fontFamilly">I can't stop listening to the <a href="#" class="feed-description-link fontFamilly">new album.</a> Who else is liking it?</p>
+                </div>
+            </div>
+        </div>
+        <script src="likes2.js"></script>
+    </body>
+</html>
