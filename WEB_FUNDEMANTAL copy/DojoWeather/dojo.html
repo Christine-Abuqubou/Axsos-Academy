@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="weather.css">
+    <script src="scripts.js"></script>
+
+</head>
+
+<body>
+    <header>
+        <div class="subTitle">
+
+            <h1>DojoWeather</h1>
+
+            <ul class="list">
+                <li onclick="citySelected(this)">Burbank</li>
+                <li onclick="citySelected(this)">Chicago</li>
+                <li onclick="citySelected(this)">Dallas</li>
+            </ul>
+
+        </div>
+    </header>
+    <div class="container">
+        <div class="content">
+            <h2>San Jose</h2>
+            <div class="select">
+                <label for="">show tempreture in</label>
+                <select id="unit" onchange="changeUnit()">
+                    <option value="c">C</option>
+                    <option value="f">F</option>
+                </select>
+            </div>
+
+
+        </div>
+        <div class="weather">
+
+            <div class="gallery">
+
+                <h3> Today</h3>
+                <img src="img/some_rain.png" alt="p1">
+                <p>some rain</p>
+                <div class="temp">
+                    <span class="hot" data-c="24">24</span>
+                    <span class="cold" data-c="18">18</span>
+                </div>
+            </div>
+            <div class="gallery">
+
+                <h3> Tomorrow</h3>
+                <img src="img/some_sun.png" alt="p2">
+                <p>some sun</p>
+                <div class="temp">
+                    <span class="hot" data-c="27">27</span>
+                    <span class="cold" data-c="19">19</span>
+                </div>
+            </div>
+            <div class="gallery">
+
+                <h3> Friday</h3>
+                <img src="img/some_clouds.png" alt="p3">
+                <p>some cloud</p>
+                <div class="temp">
+                    <span class="hot" data-c="21">21</span>
+                    <span class="cold" data-c="16">16</span>
+                </div>
+            </div>
+            <div class="gallery">
+
+                <h3> Saturday</h3>
+                <img src="img/some_sun.png" alt="p4">
+                <p>some sun</p>
+                <div class="temp">
+                    <span class="hot" data-c="26">26</span>
+                    <span class="cold" data-c="21">21</span>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="last-content" id="p5">
+            <div class="img-p">
+                <img src="img/cookie.png" alt="c">
+            </div>
+            <div class="p5">
+                <h5>stop cookie time !</h5>
+                <p>stop cookie time !We use cookies (sadly not the edible ones) to personalize
+                    content and ads, to provide social media features and to
+                    analyse our traffic. Read more..</p>
+
+            </div>
+            <button onclick="hideDiv()"> i accept</button>
+
+
+
+
+        </div>
+
+
+
+    </div>
+
+</body>
+
+</html>
