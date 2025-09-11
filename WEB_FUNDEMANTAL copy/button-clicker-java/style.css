@@ -4,6 +4,8 @@
     height: 50px;
     background-color: gray;
     padding: 10px;
+    width:50%;
+     margin:0 auto;
 }
 
 .nav-par h1 {
@@ -29,7 +31,9 @@
 
 .contener {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
+     width: 50%; 
+     margin: 0 auto; 
 }
 
 .lift-side {
@@ -38,6 +42,8 @@
     text-align: center;
     padding: 10px;
     margin: 10px;
+    width: 75%;
+    /* width: 30%; */
 }
 
 .lift-side button {
@@ -59,7 +65,10 @@
     border: 2px solid black;
     margin: 10px;
     padding: 10px;
-    height: 100px;
+    height: 150px;
+    width: 30%;
+    /* padding:40px; */
+    /* align-items: center; */
 }
 
 .right-side button {
