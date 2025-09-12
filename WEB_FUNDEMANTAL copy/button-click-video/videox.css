@@ -1,0 +1,120 @@
+* {
+
+    margin: 0 auto;
+    padding: 0 auto;
+}
+
+header {
+    margin: 0 20px 10px 20px;
+}
+
+.nav-par {
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+    background-color: gray;
+    padding: 15px;
+    box-shadow: 5px 5px 10px 2px pink;
+}
+
+.nav-par h1 {
+    display: flex;
+    align-items: center;
+}
+
+.nav-par input {
+    height: 20px;
+    width: 400px;
+    margin-top: 20px;
+}
+
+.nav-par button {
+    height: 30px;
+    width: 60px;
+    margin-top: 10px;
+    background-color: #2b77e4;
+    color: white;
+    border: solid black;
+    box-shadow: 1px 1px 1px 1px black;
+}
+
+.left-nav-button {
+    background-color: blueviolet
+}
+
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    margin: 50px;
+    height: 500px;
+
+
+}
+
+.left-nav {
+
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
+    margin-left: 50px;
+    /* gap: 10px; */
+
+
+
+
+    /* margin-left:30px; */
+
+}
+
+.ex-user {
+    display: flex;
+    justify-content: space-around;
+
+    align-items: center;
+    margin-top: 20px;
+
+    margin-right: 500px;
+    /* gap: 20px; */
+}
+
+h3 {
+    color: blueviolet;
+    margin-left: 5px;
+    font-size: 15px;
+    /* width: 40px; */
+
+
+}
+x{
+    width: 0px;
+    cursor: pointer;
+}
+
+.btn {
+    background-color: blueviolet;
+
+    width: 100px;
+    margin-left: 350px;
+    margin-bottom: 10px;
+    border: 2px solid black;
+    box-shadow: 5px 2px pink;
+    /* align-items: left; */
+}
+.right1{
+    display: flex;
+
+}
+ul li{
+    list-style-type: none;
+    font-size: 20px;
+    font-weight: bold;
+    height: 50px;
+    margin-top: 20px;
+}
+#list-video ul{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

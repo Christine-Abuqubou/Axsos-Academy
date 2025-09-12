@@ -1,11 +1,7 @@
 .body {
-    display: flex;
-    justify-content: centre;
-    align-items: center;
+    background: silver;
     margin: 0 auto;
-    /* background-color: lightgoldenrodyellow; */
-    min-height: 100px;
-    width: 100px;
+    width: 100%;
 }
 
 .gallery {
@@ -13,36 +9,65 @@
     flex-direction: column;
     gap: 15px;
     align-items: center;
-    width: 800px;
+    width: 750px;
     background-color: silver;
     margin: 0px auto;
     padding: 5px;
 }
 
 .gallery img {
-    width: 100px;
+
+    width: 150px;
     height: 150px;
     background: rgb(170, 197, 222);
     border-radius: 10px;
 }
 
+
 .row {
     display: flex;
     justify-content: centre;
-    /* gap: 15px; */
-    background: rgb(172, 207, 233);
-    padding: 15px 5px;
+    align-items: center;
+    width: 700px;
     margin: 2px;
     gap: 15px;
     border-radius: 10px;
 }
 
-.row img {
-    border-radius: 10px;
-    width: 150px;
-    height: 150px;
+.ro1 {
+    display: flex;
+    justify-content: space-evenly;
+    background: greenyellow;
+    width: 700px;
+    padding: 15px 10px;
+    margin: 0;
+    gap: 10px;
+}
+
+.row2 {
+    display: flex;
+    justify-content: space-evenly;
+
+    margin: 0;
+    gap: 15px;
+    background: rgb(235, 185, 235);
+    width: 700px;
+    padding: 15px 10px;
 
 }
 
-/* .row :nth-child(odd){ background: lightblue;} */
-/* .row :nth-child(even){ background: rgb(88, 157, 180);} */
+.img {
+
+    background: rgb(236, 147, 208);
+
+
+    display: flex;
+    justify-content: space-evenly;
+
+    margin: 0;
+    gap: 15px;
+
+    width: 680px;
+    padding: 15px 10px;
+
+}

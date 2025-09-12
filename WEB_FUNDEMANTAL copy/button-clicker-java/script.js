@@ -2,8 +2,8 @@ function alertLog() {
   alert("this massege says : ninja was like");
 }
 
-function hide(element) {
-  element.remove();
+function hide() {
+  document.getElementById("p5").style.display = "none";
 }
 function loginLogout(login) {
   if (login.innerText == "login") {
