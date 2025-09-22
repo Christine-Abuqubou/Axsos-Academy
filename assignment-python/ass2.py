@@ -1,6 +1,6 @@
 # print all integers from 0 to 150
 
-for i in range(151):
+for i in range(151):   
     print(i)
 
     # print multiplies by 5
