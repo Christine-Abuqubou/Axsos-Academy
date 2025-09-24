@@ -1,12 +1,14 @@
 #1   it print 5
 def a():
-    return 5
+    print (5)
 print(a())
 
 
 #2  it print 5+5
 def a():
-    return 5
+     return 5
+    
+    
 print(a()+a())
 
 

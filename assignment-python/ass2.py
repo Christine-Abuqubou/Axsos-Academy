@@ -18,8 +18,9 @@ for i in range(151):
 
 # add odd integers
 total = 0
-for i in range(1, 50001, 2):
-    total += i
+for i in range(0, 50001, 1):
+    if (i%2==0):
+     total += i
 print("final sum is ", total)
 
     # count by four
@@ -27,9 +28,9 @@ for i in range(2018, 0, -4):
     print(i)
 
         # low num ,highnumP
-lowNum = 2
-highNum = 9
-Mult = 3
-for i in range(lowNum, highNum + 1):
-    if i % Mult == 0:
+x = 2
+y = 9
+
+for i in range(x, y + 1):
+    if i % 3 == 0:
         print(i)
