@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Playground</title>
+<style>
+
+        .box {
+
+            width: 150px;
+
+            height: 150px;
+
+            background-color: lightblue;
+
+            display: inline-block;
+
+            margin: 10px;
+
+        }
+</style>
+</head>
+<body>
+<h1>Welcome!</h1>
+
+
+    {% for i in range(times) %}
+<div class="box"></div>
+
+    {% endfor %}
+<p>Showing {{ times }} nice looking boxes!</p>
+</body>
+</html>
+ 

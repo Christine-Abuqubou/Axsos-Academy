@@ -1,0 +1,17 @@
+body {
+   font-family: Arial, sans-serif;
+   text-align: center;
+   margin: 20px;
+}
+h1 {
+   color: #333;
+}
+.box {
+   width: 150px;
+   height: 150px;
+   background-color: lightblue;
+   display: inline-block;
+   margin: 10px;
+   border-radius: 10px; /* Rounded corners */
+   box-shadow: 2px 2px 6px rgba(0,0,0,0.2); /* Soft shadow */
+}
