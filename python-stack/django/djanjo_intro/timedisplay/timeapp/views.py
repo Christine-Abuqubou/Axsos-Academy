@@ -1,9 +1,11 @@
-from django.shortcuts import render,HttpResponse
-from time import gmtime, strftime
+from django.utils import timezone
+from django.shortcuts import render 
 
 def index(request):
     context = {
-        "time": strftime("%Y-%m-%d %I:%M %p", gmtime())  # Using 12-hour format
+        'date': timezone.now().strftime("%Y-%m-%d"),
+        'clock': timezone.now().strftime("%H:%M:%S %Z")
     }
+    print(context)
+
     return render(request, 'time.html', context)
-# Create your views here.
