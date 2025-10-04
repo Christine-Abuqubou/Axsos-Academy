@@ -1,11 +1,9 @@
-from django.utils import timezone
-from django.shortcuts import render 
+
+from django.shortcuts import render
+from time import gmtime, strftime
 
 def index(request):
     context = {
-        'date': timezone.now().strftime("%Y-%m-%d"),
-        'clock': timezone.now().strftime("%H:%M:%S %Z")
+        "time": strftime("%Y-%m-%d %H:%M:%S %p", gmtime())
     }
-    print(context)
-
-    return render(request, 'time.html', context)
+    return render(request, "time.html", context)

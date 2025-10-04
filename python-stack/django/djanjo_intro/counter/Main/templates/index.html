@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Counter</title>
+</head>
+<body>
+<h1>Counter: {{ counter }}</h1>
+<h2>Total Visits: {{ visits }}</h2>
+<h2>Counter: {{ counter }}</h2>
+
+<!-- Ninja Bonus: Reset button -->
+<form action="{% url 'destroy' %}" method="get">
+<button type="submit">Reset</button>
+</form>
+<!-- Ninja Bonus: +2 Button -->
+<form action="{% url 'increment_2' %}" method="post">
+
+        {% csrf_token %}
+<button type="submit">+2</button>
+</form>
+<!-- Sensei Bonus: Custom Increment -->
+<form action="{% url 'increment_custom' %}" method="post">
+
+        {% csrf_token %}
+<input type="number" name="amount" placeholder="Enter increment" required>
+<button type="submit">Add</button>
+</form>
+</body>
+</html>
+ 

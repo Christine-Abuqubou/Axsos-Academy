@@ -1,15 +1,15 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Time display</title>
+    <title>Django Digital Clock</title>
     {% load static %}
-    <link rel="stylesheets" href="{% static 'style.css' %}"> 
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"> 
 </head>
 <body>
-    <div class="container">
-        <h1>The Current Date and Time</h1>
-        <p>{{ time }}</p>
+    <div class="clock">
+        <h1>{{ time }}</h1>
     </div>
 </body>
 </html>

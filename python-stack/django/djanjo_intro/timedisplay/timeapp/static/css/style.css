@@ -1,0 +1,30 @@
+
+/* Background */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Courier New', monospace;
+    background: linear-gradient( #0f2027, #203a43, #2c5364);
+}
+
+/* Clock Box */
+.clock {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 30px 60px;
+    border-radius: 15px;
+    border: 3px solid #00ffcc;
+    box-shadow: 0px 0px 25px rgba(0, 255, 204, 0.8);
+    text-align: center;
+}
+
+/* Time Text */
+.clock h1 {
+    color: #00ffcc;
+    font-size: 64px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-shadow: 0px 0px 15px rgba(0, 255, 204, 0.8);
+}
