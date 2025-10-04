@@ -1,34 +1,20 @@
-from django.shortcuts import render ,redirect
-from django.views.decorators.csrf import csrf_exempt
+from django.shortcuts import render, redirect
 
 def index(request):
-    if'counter' not in request.session :
-        request.session["counter"] =0
-    if "visits" not in request.session:
-        request.session["visits"] =0
-        
-    request.session["counter"] +=1
-    return  render(request,"index.html" ,{"counter" :request.session["counter"],"visits" :request.session["visits"]})
+    # Get the current visit count, default to 0 if not set
+    count = request.session.get('visit_count', 0)
+    count += 1
 
-def destroy(request):
+    # Store back into session
+    request.session['visit_count'] = count
+
+    context = {
+        "count": count
+    }
+    return render(request, "index.html", context)
+
+
+def destroy_session(request):
+    # Clear all session data
     request.session.flush()
-    return redirect("index")
-
-def increment_2(request):
-    if "counter" not in request.session:
-        request.session["counter"] =0
-    request.session["counter"] +=2
-    return redirect("index")
-
-def increment_costum(request):
-    if "counter" not in request.session:
-        request.session["counter"] =0
-    if request.method =="POST":
-        amount=int(request.POST.get("amount", 1))
-        request.session["counter"] +=amount
-    return redirect("index")
-
-
-    
-
-# Create your views here.
+    return redirect('/')

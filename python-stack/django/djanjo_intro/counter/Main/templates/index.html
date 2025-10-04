@@ -1,30 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Counter</title>
+    <meta charset="UTF-8">
+    <title>Session Counter</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+        .counter-box {
+            background: rgba(0,0,0,0.6);
+            padding: 40px 70px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0,0,0,0.4);
+        }
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        a {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 25px;
+            background: #ff4b5c;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+        a:hover {
+            background: #e84150;
+        }
+    </style>
 </head>
 <body>
-<h1>Counter: {{ counter }}</h1>
-<h2>Total Visits: {{ visits }}</h2>
-<h2>Counter: {{ counter }}</h2>
-
-<!-- Ninja Bonus: Reset button -->
-<form action="{% url 'destroy' %}" method="get">
-<button type="submit">Reset</button>
-</form>
-<!-- Ninja Bonus: +2 Button -->
-<form action="{% url 'increment_2' %}" method="post">
-
-        {% csrf_token %}
-<button type="submit">+2</button>
-</form>
-<!-- Sensei Bonus: Custom Increment -->
-<form action="{% url 'increment_custom' %}" method="post">
-
-        {% csrf_token %}
-<input type="number" name="amount" placeholder="Enter increment" required>
-<button type="submit">Add</button>
-</form>
+    <div class="counter-box">
+        <h1>You have visited this page {{ count }} times.</h1>
+        <a href="/destroy_session">Reset Counter</a>
+    </div>
 </body>
 </html>
- 

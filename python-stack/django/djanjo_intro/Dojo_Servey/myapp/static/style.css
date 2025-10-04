@@ -1,5 +1,8 @@
-.submit{
+.submit {
     background-color: #76A5AF;
-    box-shadow: 2px 2px 2px black;
-    border: 2px solid black;
+    /* box-shadow: 2px 2px 2px black; */
+    border: 5px solid black; 
+    /* border: 3px solid #00ffcc; */
+    box-shadow: 0px 0px 25px rgba(0, 255, 204, 0.8);
+
 }
