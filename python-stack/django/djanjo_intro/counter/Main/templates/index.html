@@ -5,44 +5,68 @@
     <title>Session Counter</title>
     <style>
         body {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
             font-family: Arial, sans-serif;
-            color: white;
+            color: #fff;
         }
-        .counter-box {
-            background: rgba(0,0,0,0.6);
-            padding: 40px 70px;
+        .container {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 40px 60px;
             border-radius: 15px;
             text-align: center;
-            box-shadow: 0 0 20px rgba(0,0,0,0.4);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
-        h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-        a {
+        h1 { font-size: 40px; margin-bottom: 20px; }
+        h2 { margin: 10px 0; }
+        a, button {
             display: inline-block;
-            margin-top: 15px;
-            padding: 12px 25px;
-            background: #ff4b5c;
-            color: white;
-            text-decoration: none;
+            margin: 10px;
+            padding: 12px 20px;
+            border: none;
             border-radius: 8px;
-            transition: background 0.3s ease;
+            background: #ff4b5c;
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.3s;
+            cursor: pointer;
         }
-        a:hover {
+        a:hover, button:hover {
             background: #e84150;
+        }
+        form {
+            margin-top: 15px;
+        }
+        input[type="number"] {
+            padding: 8px;
+            border-radius: 6px;
+            border: none;
+            width: 60px;
+            text-align: center;
         }
     </style>
 </head>
 <body>
-    <div class="counter-box">
-        <h1>You have visited this page {{ count }} times.</h1>
-        <a href="/destroy_session">Reset Counter</a>
+    <div class="container">
+        <h1>Session Counter</h1>
+        <h2>You have visited this site <strong>{{ visits }}</strong> times.</h2>
+        <h2>Counter Value: <strong>{{ counter }}</strong></h2>
+
+        <!-- Ninja Bonus: Reset + +2 -->
+        <a href="{% url 'destroy' %}">Reset Counter</a>
+        <a href="{% url 'plus2' %}">+2</a>
+
+        <!-- Sensei Bonus: Custom increment -->
+        <form method="POST" action="{% url 'increment' %}">
+            {% csrf_token %}
+            <label>Increment by:</label>
+            <input type="number" name="increment" value="1" min="1">
+            <button type="submit">Add</button>
+        </form>
     </div>
 </body>
 </html>
