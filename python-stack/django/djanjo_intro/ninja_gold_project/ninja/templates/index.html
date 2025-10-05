@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ninja Gold</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+  </head>
+  <body>
+    <h1>Ninja Gold Game</h1>
+    <h2>Your Gold: {{ gold }}</h2>
+    <div class="container">
+      {% for place in locations %}
+      <div class="location-box">
+        <form action="{% url 'process_money' %}" method="POST">
+          {% csrf_token %}
+          <input type="hidden" name="location" value="{{ place }}" />
+          <h3>{{ place }}</h3>
+          {% if place == "Quest" %}
+          <p>earns/takes(0-50)</p>
+
+          {% else %}
+          <p>earns (10-20 gold)</p>
+          {% endif %}
+
+          <button type="submit">Go to {{ place }}</button>
+        </form>
+      </div>
+      {% endfor %}
+    </div>
+
+    <h3>Activities:</h3>
+    <div>
+      {% for activity in activities %}
+      <p class="{{ activity.color }}">{{ activity.message }}</p>
+      {% endfor %}
+    </div>
+  </body>
+</html>
