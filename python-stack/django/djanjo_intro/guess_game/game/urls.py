@@ -1,9 +1,9 @@
-from django.contrib import admin
 from django.urls import path
-from game import views
+from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('guess/', views.guess, name='guess'),
     path('reset/', views.reset, name='reset'),
-    path('admin/', admin.site.urls),
 ]
+

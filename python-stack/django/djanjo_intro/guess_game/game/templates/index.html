@@ -1,24 +1,44 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Guess the Number</title>
+    <title>Great Number Game</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
-    <h1>Guess the Number (1 to 100)</h1>
+    <div class="container">
+        <h1>Guess the Number (1-100)</h1>
 
-    <form method="POST">
-        {% csrf_token %}
-        <input type="number" name="guess" min="1" max="100" required>
-        <button type="submit">Submit</button>
-    </form>
+        {% if not game_over %}
+        <form method="POST" action="{% url 'guess' %}">
+            {% csrf_token %}
+            <input type="number" name="guess" min="1" max="100" required>
+            <button type="submit">Guess</button>
+        </form>
+        {% endif %}
 
-    <p>{{ message }}</p>
+        {% if status %}
+        <p class="{% if 'Correct' in status %}correct{% elif 'Lose' in status %}lose{% else %}try-again{% endif %}">
+            {{ status }}
+        </p>
+        {% endif %}
 
-    <form action="{% url 'reset' %}" method="get">
-        <button type="submit">Restart Game</button>
-    </form>
+        <p>Attempts: {{ attempts }}</p>
+
+        {% if game_over %}
+            <a href="{% url 'reset' %}">Play Again</a>
+        {% endif %}
+
+        {% if leaderboard %}
+            <h2>Leaderboard</h2>
+            <ul>
+                {% for entry in leaderboard %}
+                    <li>Guessed in {{ entry.attempts }} attempts</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
 </body>
 </html>
