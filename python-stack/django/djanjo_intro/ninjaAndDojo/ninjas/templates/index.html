@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dojos & Ninjas</title>
+<link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+<h1 class="title">Dojos 🥋 & Ninjas 🗡️</h1>
+<div class="forms-container">
+<!-- Add Dojo -->
+<div class="form-card">
+<h2>Add Dojo</h2>
+<form action="/add_dojo" method="post">
+               {% csrf_token %}
+<label for="name">Dojo Name:</label>
+<input type="text" name="name" id="name" required placeholder="Enter dojo name">
+<label for="city">City:</label>
+<input type="text" name="city" id="city" placeholder="Enter city">
+<label for="state">State:</label>
+<input type="text" name="state" id="state" placeholder="Enter state">
+<button type="submit" class="btn">Add Dojo</button>
+</form>
+</div>
+<!-- Add Ninja -->
+<div class="form-card">
+<h2>Add Ninja</h2>
+<form action="/add_ninja/" method="post">
+               {% csrf_token %}
+<label for="first_name">First Name:</label>
+<input type="text" name="first_name" id="first_name" >
+<label for="last_name">Last Name:</label>
+<input type="text" name="last_name" id="last_name" >
+<label for="dojo">Select Dojo:</label>
+<select name="dojo_id" id="dojo" required>
+<option value=""> Choose Dojo </option>
+                   {% for dojo in all_dojos %}
+<option value="{{ dojo.id }}">{{ dojo.name }}</option>
+                   {% empty %}
+<option disabled>No Dojos Available</option>
+                   {% endfor %}
+</select>
+<button type="submit" class="btn">Add Ninja</button>
+</form>
+</div>
+</div>
+<!-- Display All Dojos and Ninjas -->
+<div class="dojos-container">
+<h2>All Dojos & Their Ninjas</h2>
+       {% for dojo in all_dojos %}
+<div class="dojo-card">
+<h3>{{ dojo.name }} 🏯</h3>
+<p>City: {{ dojo.city }} | State: {{ dojo.state }}</p>
+<h4>Ninjas:</h4>
+<ul>
+                   {% for ninja in dojo.ninja_set.all %}
+<li>{{ ninja.first_name }} {{ ninja.last_name }}</li>
+                   {% empty %}
+<li class="empty">No ninjas yet!</li>
+                   {% endfor %}
+</ul>
+<form action="{% url 'delete_dojo' dojo.id %}" method="post">
+                   {% csrf_token %}
+<button type="submit" class="delete-btn">Delete Dojo</button>
+</form>
+</div>
+       {% empty %}
+<p class="empty">No dojos available yet — add one above!</p>
+       {% endfor %}
+</div>
+</body>
+</html>
