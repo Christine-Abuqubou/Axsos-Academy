@@ -1,17 +1,18 @@
-{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <title>Users List</title>
-    {%load static%}
+    {% load static %}
+  
     <link rel="stylesheet" href="{% static 'style.css' %}" />
   </head>
   <body>
     <div class="container">
       <h1>All Users</h1>
 
-      <!-- Add User Form -->
+      
       <form method="POST" action="{% url 'add_user' %}" class="user-form">
         {% csrf_token %}
         <input
@@ -26,7 +27,7 @@
         <button type="submit">Add User</button>
       </form>
 
-      <!-- Users Table -->
+     
       <table>
         <thead>
           <tr>
@@ -53,12 +54,7 @@
           {% empty %}
           <tr>
             <td>No users found.</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            
           </tr>
           {% endfor %}
         </tbody>

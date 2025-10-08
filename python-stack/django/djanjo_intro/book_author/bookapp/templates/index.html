@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Books & Authors</title>
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+  <div class="container">
+    <div class="forms">
+      <div class="form-card">
+        <h2>Add Book</h2>
+        <form action="{% url 'add_book' %}" method="POST">
+          {% csrf_token %}
+          <input type="text" name="title" placeholder="Book Title" required>
+          <textarea name="desc" placeholder="Description"></textarea>
+          <button type="submit">Add Book</button>
+        </form>
+      </div>
+
+      <div class="form-card">
+        <h2>Add Author</h2>
+        <form action="{% url 'add_author' %}" method="POST">
+          {% csrf_token %}
+          <input type="text" name="first_name" placeholder="First Name" required>
+          <input type="text" name="last_name" placeholder="Last Name" required>
+          <textarea name="notes" placeholder="Notes"></textarea>
+          <button type="submit">Add Author</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="tables">
+      <h2>All Books</h2>
+      <table>
+        <tr><th>Title</th><th>Description</th><th>Details</th></tr>
+        {% for book in books %}
+          <tr>
+            <td>{{ book.title }}</td>
+            <td>{{ book.desc }}</td>
+            <td><a href="{% url 'book_detail' book.id %}">View</a></td>
+          </tr>
+        {% endfor %}
+      </table>
+
+      <h2>All Authors</h2>
+      <table>
+        <tr><th>Name</th><th>Details</th></tr>
+        {% for author in authors %}
+          <tr>
+            <td>{{ author.first_name }} {{ author.last_name }}</td>
+            <td><a href="{% url 'author_detail' author.id %}">View</a></td>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,12 +1,12 @@
 from django.shortcuts import render, redirect
 from .models import User
 
-# Route to display all users and the form
+
 def index(request):
     users = User.objects.all()
     return render(request, "index.html", {"users": users})
 
-# Route to process the form submission
+
 def add_user(request):
     if request.method == "POST":
         first_name = request.POST.get("first_name")
@@ -21,5 +21,5 @@ def add_user(request):
             email=email,
             age=age
         )
-        return redirect("/")  # redirect to main page
-    return redirect("/")  # redirect if GET request
+        return redirect("/")  
+    return redirect("/")  

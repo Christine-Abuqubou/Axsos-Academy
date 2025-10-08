@@ -1,0 +1,83 @@
+body {
+  background: #f7f6fb;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+}
+
+.container {
+  width: 90%;
+  margin: 30px auto;
+}
+
+.forms {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 40px;
+}
+
+.form-card {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  width: 40%;
+}
+
+.form-card input, .form-card textarea {
+  width: 100%;
+  margin: 8px 0;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background: #6c63ff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #5146d9;
+}
+
+.tables {
+  text-align: center;
+}
+
+table {
+  margin: 0 auto 30px;
+  width: 80%;
+  border-collapse: collapse;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+table th {
+  background-color: #6c63ff;
+  color: white;
+}
+
+a {
+  color: #6c63ff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.detail-card {
+  background: white;
+  padding: 30px;
+  margin: 50px auto;
+  width: 60%;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
