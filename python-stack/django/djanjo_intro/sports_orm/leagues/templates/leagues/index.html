@@ -135,5 +135,145 @@
 				<p>No teams found.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
 			{% endfor %}
 		</ol>
+		<h1>Sports ORM Queries - Part 2</h1>
+		 <h1>Sports ORM Results</h1>
+
+    <h2>Teams in Atlantic Soccer Conference</h2>
+    <ul>
+        {% for t in atlantic_soccer_conference_teams %}
+            <li>{{ t.location }} — {{ t.team_name }}</li>
+        {% empty %}
+            <li>No teams found.</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Players on Boston Penguins</h2>
+    <ul>
+        {% for p in boston_penguins_players %}
+            <li>{{ p.first_name }} {{ p.last_name }}</li>
+        {% empty %}
+            <li>No players found.</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Players in International Collegiate Baseball Conference</h2>
+    <ul>
+        {% for p in icbc_players %}
+            <li>{{ p.first_name }} {{ p.last_name }}</li>
+        {% empty %}
+            <li>No players found.</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Lopez Players in American Conference of Amateur Football</h2>
+    <ul>
+        {% for p in acaf_players_lopez %}
+            <li>{{ p.first_name }} {{ p.last_name }}</li>
+        {% empty %}
+            <li>No players found.</li>
+        {% endfor %}
+    </ul>
+
+    <h2>All Football Players</h2>
+    <ul>
+        {% for p in football_players %}
+            <li>{{ p.first_name }} {{ p.last_name }} — {{ p.curr_team.team_name }}</li>
+        {% empty %}
+            <li>No players found.</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Teams with a Current Player Named Sophia</h2>
+    <ul>
+        {% for t in teams_with_sophia %}
+            <li>{{ t.location }} — {{ t.team_name }}</li>
+        {% empty %}
+            <li>No teams found.</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Leagues with a Current Player Named Sophia</h2>
+    <ul>
+        {% for l in leagues_with_sophia %}
+            <li>{{ l.name }} — {{ l.sport }}</li>
+        {% empty %}
+            <li>No leagues found.</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Flores Who Don’t Play for Washington Roughriders</h2>
+    <ul>
+        {% for p in flores_not_roughriders %}
+            <li>{{ p.first_name }} {{ p.last_name }} ({{ p.curr_team.team_name }})</li>
+        {% empty %}
+            <li>No players found.</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Samuel Evans’ Teams (Past & Present)</h2>
+    <ul>
+        {% for t in samuel_evans_teams %}
+            <li>{{ t.location }} — {{ t.team_name }}</li>
+        {% empty %}
+            <li>No teams found.</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Manitoba Tiger-Cats Players (Past & Present)</h2>
+    <ul>
+        {% for p in manitoba_tiger_cats_players %}
+            <li>{{ p.first_name }} {{ p.last_name }}</li>
+        {% empty %}
+            <li>No players found.</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Formerly with Wichita Vikings</h2>
+    <ul>
+        {% for p in formerly_wichita_vikings %}
+            <li>{{ p.first_name }} {{ p.last_name }}</li>
+        {% empty %}
+            <li>No players found.</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Jacob Gray’s Teams Before Oregon Colts</h2>
+    <ul>
+        {% for t in jacob_gray_prev_teams %}
+            <li>{{ t.location }} — {{ t.team_name }}</li>
+        {% empty %}
+            <li>No teams found.</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Joshua Players in Atlantic Federation of Amateur Baseball Players</h2>
+    <ul>
+        {% for p in joshua_atlantic_federation %}
+            <li>{{ p.first_name }} {{ p.last_name }}</li>
+        {% empty %}
+            <li>No players found.</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Teams with 12 or More Players</h2>
+    <ul>
+        {% for t in teams_with_12plus_players %}
+            <li>{{ t.location }} — {{ t.team_name }} ({{ t.num_players }} players)</li>
+        {% empty %}
+            <li>No teams found.</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Players and Number of Teams Played For</h2>
+    <ul>
+        {% for p in players_team_count %}
+            <li>{{ p.first_name }} {{ p.last_name }} — {{ p.num_teams }} teams</li>
+        {% empty %}
+            <li>No data available.</li>
+        {% endfor %}
+    
+
+
+
 	</body>
 </html>

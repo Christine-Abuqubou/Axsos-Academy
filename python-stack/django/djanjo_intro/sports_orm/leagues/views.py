@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import *
+from django.db.models import Q, Count
 
 from . import team_maker
 
@@ -23,6 +24,28 @@ def index(request):
         "joshua_players":Joshua_players(),
         "cooper_not_joshua": JoshuaCoper_exclude_players(),
         "alexander_or_wyatt":alexsender_players(), 
+        
+        
+         
+        "atlantic_soccer_conference_teams": atlantic_soccer(),
+        "boston_penguins_players": boston_penguins(),
+        "icbc_players":icb_players() ,
+        "acaf_players_lopez":acf_players() ,
+        "football_players":football_players() ,
+        "teams_with_sophia":team_with_sophia() ,
+        "leagues_with_sophia":league_with_sophia() ,
+
+       
+        "flores_not_roughriders":flores_not_roughriders() ,
+        "samuel_evans_teams":sam_teams() ,
+        # "manitoba_tiger_cats_players":manitoba() ,
+        # "formerly_wichita_vikings":formly() ,
+        # "jacob_gray_prev_teams":jacob_teams() ,
+        # "joshua_atlantic_federation": jash_atlantic(),
+
+        
+        # "teams_with_12plus_players": teams_with_12plus(),
+        # "players_team_count":players_count() ,
 
   
 	}
