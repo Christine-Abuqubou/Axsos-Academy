@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ author.first_name }} {{ author.last_name }}</title>
+  <link rel="stylesheet" href="{% static 'wireframe.css' %}">
+</head>
+<body>
+    <div class="container">
+
+<h1>Add New Show</h1>
+<form action="/shows/create" method="POST">
+{% csrf_token %}
+<p>Title: <input type="text" name="title"></p>
+<p>Network: <input type="text" name="network"></p>
+<p>Release Date: <input type="date" name="release_date"></p>
+<p>Description: <textarea name="description"></textarea></p>
+<button type="submit">Create</button>
+</form>
+<a href="/shows">Back</a>
+</div>
+
+</body>

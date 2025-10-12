@@ -1,0 +1,22 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{% block title %}TV Shows{% endblock %}</title>
+<link rel="stylesheet" href="{% static 'wireframe.css' %}">
+</head>
+<body>
+<div class="container">
+<div class="window-top">
+<div class="controls">
+<div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+<div class="window-title">{% block head_title %}TV Shows Wireframe{% endblock %}</div>
+</div>
+
+    {% block content %}{% endblock %}
+</div>
+</body>
+</html>
+ 

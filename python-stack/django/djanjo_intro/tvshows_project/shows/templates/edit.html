@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ author.first_name }} {{ author.last_name }}</title>
+  <link rel="stylesheet" href="{% static 'wireframe.css' %}">
+</head>
+<body>
+    <div class="container">
+
+<h1>Edit Show</h1>
+<form action="/shows/{{ show.id }}/update" method="POST">
+{% csrf_token %}
+<p>Title: <input type="text" name="title" value="{{ show.title }}"></p>
+<p>Network: <input type="text" name="network" value="{{ show.network }}"></p>
+<p>Release Date: <input type="date" name="release_date" value="{{ show.release_date|date:'Y-m-d' }}"></p>
+<p>Description: <textarea name="description">{{ show.description }}</textarea></p>
+<button type="submit">Update</button>
+</form>
+<a href="/shows/{{ show.id }}">Cancel</a>
+
+</div>
+
+</body>
