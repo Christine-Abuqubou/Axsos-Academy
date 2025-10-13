@@ -19,6 +19,13 @@
 <button type="submit">Update</button>
 </form>
 <a href="/shows/{{ show.id }}">Cancel</a>
+{% if messages %}
+    <ul>
+    {% for message in messages %}
+        <li style="color:red">{{ message }}</li>
+    {% endfor %}
+    </ul>
+{% endif %}
 
 
 

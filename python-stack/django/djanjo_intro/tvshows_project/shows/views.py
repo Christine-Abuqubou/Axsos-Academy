@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.shortcuts import render, redirect
 from .models import Show
 
@@ -17,9 +18,17 @@ def new_show(request):
 
 def create_show(request):
     if request.method == "POST":
-        show = Show().create(request.POST)
+        show, errors = Show.objects.create(request.POST)
+        if errors:
+            for key, value in errors.items():
+                messages.error(request, value)
+            return redirect("/shows/new")
         return redirect(f"/shows/{show.id}")
     return redirect("/shows/new")
+    # if request.method == "POST":
+    #     show = Show().create(request.POST)
+    #     return redirect(f"/shows/{show.id}")
+    # return redirect("/shows/new")
 
 
 def show_detail(request, show_id):
@@ -30,13 +39,27 @@ def show_detail(request, show_id):
 
 
 def edit_show(request, show_id):
-    show = Show().get_one(show_id)
-    if not show:
-        return redirect('/shows')
-    return render(request, "edit.html", {"show": show})
+    if request.method == "POST":
+        show = Show.objects.get(id=show_id)  
+        updated_show, errors = Show.objects.update_show(show, request.POST)
+        
+        if errors:
+            for key, value in errors.items():
+                messages.error(request, value)
+            return redirect(f'/shows/{show_id}/edit')  
+        
+        return redirect(f'/shows/{show_id}')  
+
+    return redirect(f'/shows/{show_id}/edit')
+# def edit_show(request, show_id):
+#     show = Show().get_one(show_id)
+#     if not show:
+#         return redirect('/shows')
+#     return render(request, "edit.html", {"show": show})
 
 
 def update_show(request, show_id):
+    
     if request.method == "POST":
         show = Show().get_one(show_id)
         if not show:
