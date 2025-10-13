@@ -38,3 +38,7 @@ class Show(models.Model):
     def remove(self):
         self.delete()
         return True
+    
+    
+    
+    
