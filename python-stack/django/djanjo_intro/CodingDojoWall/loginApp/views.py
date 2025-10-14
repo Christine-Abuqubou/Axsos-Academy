@@ -2,7 +2,11 @@ from django.shortcuts import render ,redirect
 from .models import  *
 
 def index(request):
-    return render (request,"index.html")
+    if 'user_id' in request.session:
+        return redirect('/wall')
+    return render(request, "index.html")
+
+    # return render (request,"index.html")
 
 def register(request):
     if request.method == "POST":
@@ -16,7 +20,7 @@ def register(request):
         
         request.session['user_id'] = new_user.id
         request.session['user_name'] = new_user.first_name
-        return redirect('/success')
+        return redirect('/wall')
 
     return redirect('/')
     # create(request,request.POST)
@@ -33,7 +37,7 @@ def login(request):
             user = User.objects.get(email=request.POST['email'])
             request.session['user_id'] = user.id
             request.session['user_name'] = user.first_name
-            return redirect('/success')
+            return redirect('/wall')
     
     
     return redirect("/")
