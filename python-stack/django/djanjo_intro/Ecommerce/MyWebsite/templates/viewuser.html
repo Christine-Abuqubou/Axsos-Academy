@@ -1,0 +1,22 @@
+<section>
+    <h2>User Information</h2>
+    
+    <p> {{ user.firstname }}</p>
+    <p> {{ user.lastname }}</p>
+    <p> {% for address in user.address.all %}</p>
+    <p> {{ address }}</p>
+    {% endfor %}
+</section>
+
+<section>
+    <h2>Games Created</h2>
+    <ul>
+        {% for game in games %}
+        <li>
+            <a href="/viewgame/{{ game.id }}">{{ game.game_name }}</a> - Created on {{ game.created_at|date:"Y-m-d H:i" }}
+        </li>
+        {% empty %}
+        <li>No games created by this user.</li>
+        {% endfor %}
+    </ul>
+</section>

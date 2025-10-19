@@ -1,0 +1,34 @@
+
+<form action="/updategameform" method="POST">
+  {% csrf_token %}
+    <input type="hidden" name="gameid" value="{{ game.id }}">
+
+
+  <label for="game_name">Game Name</label>
+  <input type="text" id="game_name" name="game_name" value="{{ game.game_name }}">
+
+  <label for="genre">Genre</label>
+  <input type="text" id="genre" name="genre" value="{{ game.genre }}">
+
+  <label for="release_date">Release Date</label>
+  <input type="date" id="release_date" name="release_date" value="{{ game.release_date|date:'Y-m-d' }}">
+
+  <label for="price">Price</label>
+  <input type="number" id="price" name="price" step="0.01" value="{{ game.price }}">
+
+  <label for="description">Description</label>
+  <textarea id="description" name="description">{{ game.description }}</textarea>
+
+  <button type="submit">Update Game</button>
+</form>
+
+
+
+
+    {% comment %} {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %} {% endcomment %}

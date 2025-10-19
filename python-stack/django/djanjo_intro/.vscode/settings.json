@@ -3,6 +3,7 @@
         "checkpw",
         "gensalt",
         "hashpw",
-        "pyexpat"
+        "pyexpat",
+        "tailwend"
     ]
 }

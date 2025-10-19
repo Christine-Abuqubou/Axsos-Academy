@@ -1,0 +1,22 @@
+<form action="creategameform" method="post">
+        {% csrf_token %}
+        <label for="gamename">Game Name: </label>
+        <input type="text" name="gamename" id="gamename">
+
+        <label for="description">Description: </label>
+        <input type="text" name="description" id="description">
+
+        <label for="genre">Genre: </label>
+        <input type="text" name="genre" id="genre" value="{{ game.genre }}">
+
+        <input type="submit" value="Submit">
+
+    </form>
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}

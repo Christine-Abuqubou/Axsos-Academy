@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Games Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <nav class="bg-white shadow-lg">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-3xl font-bold text-gray-800">Games Dashboard</h1>
+            <div class="flex items-center">
+                <p class="text-lg mr-6">Welcome, <span class="font-semibold">{{ user.firstname }}</span></p>
+                <a href="/logout" class="text-purple-600 hover:text-purple-800 font-semibold">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-6 py-8">
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-2xl font-bold">My Created Games</h2>
+            <button onclick="openModal()" class="bg-purple-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-purple-700 transition duration-300">Create New Game</button>
+        </div>
+
+        <div class="bg-white shadow-md rounded-lg overflow-hidden">
+            <table class="min-w-full leading-normal">
+                <thead>
+                    <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                        <th class="py-3 px-6 text-left">Game Name</th>
+                        <th class="py-3 px-6 text-left">Genre</th>
+                        <th class="py-3 px-6 text-center">Release Date</th>
+                        <th class="py-3 px-6 text-center">Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="text-gray-700 text-sm font-light">
+                    {% for game in games %}
+                    <tr class="border-b border-gray-200 hover:bg-gray-100">
+                        <td class="py-4 px-6 text-left whitespace-nowrap">
+                            <a href="/viewgame/{{game.id}}" class="font-semibold text-purple-600 hover:underline">{{ game.game_name }}</a>
+                        </td>
+                        <td class="py-4 px-6 text-left">
+                            {{ game.genre }}
+                        </td>
+                        <td class="py-4 px-6 text-center">
+                            {{ game.release_date|date:"M d, Y" }}
+                        </td>
+                        <td class="py-4 px-6 text-center">
+                            <div class="flex item-center justify-center">
+                              
+                                <a href="/viewgame/{{game.id}}" class="w-8 h-8 rounded-full bg-green-200 text-green-700 flex items-center justify-center mr-2 hover:bg-green-300" title="View">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                    </svg> 
+                                    
+                                </a> 
+                                
+                                <form action="/delete_game_form" method="post" onsubmit="return confirm('Are you sure you want to delete this game?');">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="gameid" value="{{ game.id }}">
+                                    <input type="hidden" name="userid" value="{{ game.created_by.id }}">
+                                    <button type="submit" class="w-8 h-8 rounded-full bg-red-200 text-red-700 flex items-center justify-center hover:bg-red-300" title="Delete">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                        </svg>
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="4" class="text-center py-10 px-6">
+                            <p class="text-gray-500 text-lg">You haven't created any games yet.</p>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <div id="createGameModal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center hidden">
+        <div class="bg-white rounded-lg shadow-xl p-8 w-full max-w-md">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold">Create a New Game</h3>
+                <button onclick="closeModal()" class="text-gray-500 hover:text-gray-800">&times;</button>
+            </div>
+            <form action="/creategameform" method="POST">
+                {% csrf_token %}
+                <div class="mb-4">
+                    <label for="game_name" class="block text-sm font-bold mb-2">Game Name</label>
+                    <input type="text" name="game_name" id="game_name" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" required>
+                </div>
+                <div class="mb-4">
+                    <label for="genre" class="block text-sm font-bold mb-2">Genre</label>
+                    <input type="text" name="genre" id="genre" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" required>
+                </div>
+                <div class="mb-4">
+                    <label for="release_date" class="block text-sm font-bold mb-2">Release Date</label>
+                    <input type="date" name="release_date" id="release_date" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" required>
+                </div>
+                <div class="text-right">
+                    <button type="button" onclick="closeModal()" class="text-gray-600 bg-gray-200 px-4 py-2 rounded-lg mr-2 hover:bg-gray-300">Cancel</button>
+                    <button type="submit" class="bg-purple-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-purple-700">Create Game</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer class="text-center py-4 text-gray-500 text-sm">
+        &copy; {{ current_year }} MyEcommerce. All rights reserved.
+    </footer>
+
+    <script>
+        const modal = document.getElementById('createGameModal');
+
+        function openModal() {
+            modal.classList.remove('hidden');
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
