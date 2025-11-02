@@ -84,8 +84,9 @@ class GameManager(models.Manager):
             errors["release_date"] = "Game release date is required!"
         if len(postData.get('genre', '').strip()) == 0:
             errors["genre"] = "Game genre is required!"
-        if len(postData.get('price', '').strip()) == 0:
-            errors["price"] = "Game price is required!"
+            
+            
+        
 
           
         return errors
