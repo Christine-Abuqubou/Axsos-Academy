@@ -2,9 +2,9 @@ public class TestOrder {
     public static void main(String[] args) {
         Order order1 = new Order();
         Order order2 =new Order();
-        Order order3 = new Order("Amr");
-        Order order4 = new Order("Khaled");
-        Order order5 = new Order("Ibrahim");
+        Order order3 = new Order("christine");
+        Order order4 = new Order("amr");
+        Order order5 = new Order("khalid");
 
         Item item1 = new Item("latte", 10);
         Item item2 = new Item("Ice Coffee", 8);
