@@ -28,6 +28,7 @@ public class BooksApi {
     public Book show(@PathVariable("id") Long id) {
         Book book = bookService.findBook(id);
         return book;
+
     }
     @RequestMapping(value="/api/books/{id}", method=RequestMethod.PUT)
     public Book update(
