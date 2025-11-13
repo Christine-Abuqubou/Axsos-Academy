@@ -1,21 +1,21 @@
 <%--
   Created by IntelliJ IDEA.
   User: chrisbsharah
-  Date: 12/11/2025
-  Time: 11:35 am
+  Date: 13/11/2025
+  Time: 1:24 pm
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
-    <title>Burger Tracker</title>
+    <title>Edit Burger</title>
 </head>
 <body>
-<h1>Burger Tracker</h1>
+<h1>Edit Burger</h1>
+<form:form action="/burgers/${burger.id}" method="post" modelAttribute="burger">
+    <input type="hidden" name="_method" value="put" /> <!-- Simulate PUT request -->
 
-<h2>Add a Burger</h2>
-<form:form action="/burgers" method="post" modelAttribute="burger">
     <p>
         <form:label path="name">Burger Name:</form:label>
         <form:input path="name"/>
@@ -36,30 +36,10 @@
         <form:textarea path="notes"/>
         <form:errors path="notes"/>
     </p>
-    <input type="submit" value="Add Burger"/>
+
+    <input type="submit" value="Update Burger"/>
 </form:form>
 
-<h2>All Burgers</h2>
-<table border="1">
-    <tr>
-        <th>Name</th>
-        <th>Restaurant</th>
-        <th>Rating</th>
-        <th>Notes</th>
-        <th>Actions</th>
-    </tr>
-    <c:forEach var="b" items="${burgers}">
-        <tr>
-            <td><c:out value="${b.name}"/></td>
-            <td><c:out value="${b.restaurant}"/></td>
-            <td><c:out value="${b.rating}"/></td>
-            <td><c:out value="${b.notes}"/></td>
-            <td>
-
-                <a href="/burgers/edit/${b.id}">Edit</a>
-            </td>
-        </tr>
-    </c:forEach>
-</table>
+<p><a href="/">Back to Home</a></p>
 </body>
 </html>
